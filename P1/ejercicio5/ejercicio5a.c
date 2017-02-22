@@ -6,20 +6,21 @@
 
 #define NUM_PROC 3
 int main (void){
-	int pid;
+	int pid=0;
 	int i;
-	for (i=0; i < NUM_PROC; i++){
+	for (i=0; i < NUM_PROC && pid==0; i++){
 		if ((pid=fork()) <0 ){
 			printf("Error al emplear fork\n");
 			exit(EXIT_FAILURE);
 		}else if (pid ==0){
-			printf("HIJO  %d y su padre es %d\n", getpid(), getppid());    
+			printf("HIJO  %d\n", i); 
+
 		}
 		else{
-			printf ("PADRE %d\n",getppid());
-			wait (NULL);  
+			printf ("PADRE %d\n",i);
 		}
 	}
+	wait (NULL);
 	exit(EXIT_SUCCESS);
 }
 
