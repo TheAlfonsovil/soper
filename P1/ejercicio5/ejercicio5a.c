@@ -2,6 +2,8 @@
 #include <sys/types.h> 
 #include <sys/wait.h>
 #include <stdlib.h>
+#include <unistd.h>
+
 #define NUM_PROC 3
 int main (void){
 	int pid;
@@ -11,11 +13,12 @@ int main (void){
 			printf("Error al emplear fork\n");
 			exit(EXIT_FAILURE);
 		}else if (pid ==0){
-			printf("HIJO  %d\n" ,i);     
-		}else{
-			printf ("PADRE %d\n",i);
+			printf("HIJO  %d y su padre es %d\n", getpid(), getppid());    
 		}
-	wait(NULL);
+		else{
+			printf ("PADRE %d\n",getppid());
+			wait (NULL);  
+		}
 	}
 	exit(EXIT_SUCCESS);
 }
