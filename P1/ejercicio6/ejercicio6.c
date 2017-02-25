@@ -5,19 +5,19 @@
 
 int main (void){
 	int pid;
-	char* buff;
-		if ((pid=fork()) <0 ){
+	char* buff= (char*) malloc (80 * sizeof(buff[0]));
+			if (buff==NULL) exit (EXIT_FAILURE);
+		pid=fork();
+		if (pid < 0){
 			printf("Error al emplear fork\n");
 			exit(EXIT_FAILURE);
 		}
-		else if (pid ==0){
+		else if (pid !=0){
 			printf("Escribe un nombre: "); 
 			scanf ("%s", buff);   
 		}
-		else{
-		buff= (char*) malloc (80 * sizeof(buff[0]));
-		if (buff==NULL) exit (EXIT_FAILURE);	  
-		}
+	free(buff);
+	
 	exit(EXIT_SUCCESS);
 }
 
