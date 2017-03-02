@@ -55,9 +55,7 @@ int main(){
 					/*Cierre del descriptor de salida*/
 						close(fe[1]);
 					/* Cierre del descriptor de entrada en el hijo */
-						close(fa[0]);
-					/*Recoger datos de fe*/
-						nbytes=read(fe[0],readbuffer, sizeof(readbuffer));
+				close(fa[0]);
 					/* Enviar el saludo vía descriptor de salida */
 				size=sprintf(resultado,"Datos enviados a través de la tubería por el proceso PID = %d. 				   Operando 1: %d . Operando 2: %d . Suma: %d\n", i, a, b, a+b);
 
