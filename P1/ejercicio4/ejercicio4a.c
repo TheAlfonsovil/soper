@@ -13,9 +13,9 @@ int main (void){
 			printf("Error al emplear fork\n");
 			exit(EXIT_FAILURE);
 		}else if (pid ==0){
-			printf("HIJO  %d y su padre es %d\n", getpid(), getppid());     
+			printf("HIJO  %d y PADRE %d\n", getpid(), getppid());     
 		}else{
-			printf ("PADRE %d\n", getppid());
+			printf ("PADRE %d\n", getpid());
 		}
 	}
 	exit(EXIT_SUCCESS);

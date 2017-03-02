@@ -13,9 +13,9 @@ int main (void){
 			printf("Error al emplear fork\n");
 			exit(EXIT_FAILURE);
 		}else if (pid ==0){
-			printf("HIJO  %d\n" ,i);     
+			printf("HIJO numero %d con id %d y ppid %d\n" , i, getpid(), getppid());     
 		}else{
-			printf ("PADRE %d\n",i);
+			printf ("PADRE %d\n", getpid());
 		}
 	}
 	wait(NULL);
